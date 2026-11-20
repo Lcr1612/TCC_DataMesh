@@ -1,0 +1,114 @@
+services:
+
+  clientes:
+    image: postgres:16
+    container_name: tcc_clientes
+    environment:
+      POSTGRES_DB: db_clientes
+      POSTGRES_USER: tcc
+      POSTGRES_PASSWORD: tcc123
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - clientes_data:/var/lib/postgresql/data
+    networks:
+      - tcc_network
+
+  filiais:
+    image: postgres:16
+    container_name: tcc_filiais
+    environment:
+      POSTGRES_DB: db_filiais
+      POSTGRES_USER: tcc
+      POSTGRES_PASSWORD: tcc123
+    ports:
+      - "127.0.0.1:5434:5432"
+    volumes:
+      - filiais_data:/var/lib/postgresql/data
+    networks:
+      - tcc_network
+
+  produtos:
+    image: postgres:16
+    container_name: tcc_produtos
+    environment:
+      POSTGRES_DB: db_produtos
+      POSTGRES_USER: tcc
+      POSTGRES_PASSWORD: tcc123
+    ports:
+      - "127.0.0.1:5435:5432"
+    volumes:
+      - produtos_data:/var/lib/postgresql/data
+    networks:
+      - tcc_network
+
+  vendas:
+    image: postgres:16
+    container_name: tcc_vendas
+    environment:
+      POSTGRES_DB: db_vendas
+      POSTGRES_USER: tcc
+      POSTGRES_PASSWORD: tcc123
+    ports:
+      - "127.0.0.1:5436:5432"
+    volumes:
+      - vendas_data:/var/lib/postgresql/data
+    networks:
+      - tcc_network
+
+  logistica:
+    image: postgres:16
+    container_name: tcc_logistica
+    environment:
+      POSTGRES_DB: db_logistica
+      POSTGRES_USER: tcc
+      POSTGRES_PASSWORD: tcc123
+    ports:
+      - "127.0.0.1:5437:5432"
+    volumes:
+      - logistica_data:/var/lib/postgresql/data
+    networks:
+      - tcc_network
+
+  federador:
+    image: postgres:16
+    container_name: tcc_federador
+    environment:
+      POSTGRES_DB: db_federador
+      POSTGRES_USER: tcc
+      POSTGRES_PASSWORD: tcc123
+    ports:
+      - "127.0.0.1:5438:5432"
+    volumes:
+      - federador_data:/var/lib/postgresql/data
+    networks:
+      - tcc_network
+
+  ods:
+    image: postgres:16
+    container_name: tcc_ods
+    environment:
+      POSTGRES_DB: db_ods
+      POSTGRES_USER: tcc
+      POSTGRES_PASSWORD: tcc123
+    ports:
+      - "127.0.0.1:5439:5432"
+    volumes:
+      - ods_data:/var/lib/postgresql/data
+    networks:
+      - tcc_network
+
+
+volumes:
+  clientes_data:
+  filiais_data:
+  produtos_data:
+  vendas_data:
+  logistica_data:
+  federador_data:
+  ods_data:
+
+
+networks:
+  tcc_network:
+    driver: bridge

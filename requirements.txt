@@ -1,0 +1,3 @@
+# Dependências dos scripts de geração, carga, benchmark e atualização
+psycopg[binary]>=3.1,<4
+openpyxl>=3.1,<4
